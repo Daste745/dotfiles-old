@@ -1,0 +1,66 @@
+#App launchers (super + F1-F12)
+super + {F1, F2, F3, F4, F5, F6, F7, F8, F9, F10, F11, F12}
+  {$BROWSER, \
+   discord, \
+   spotify, \
+   steam, \
+   lutris, \
+   echo "" > /dev/null, \
+   echo "" > /dev/null, \
+   rofiunicode, \
+   rofimount, \
+   rofiumount, \
+   echo "" > /dev/null, \
+   rofipowermenu}
+
+
+#Applications
+#Terminal
+super + Return
+  $TERM
+
+#Program launcher
+super + r
+  rofi -show run
+
+#Ranger file manager
+super + e
+  $TERM -e ranger
+
+#Process manager
+super + {_, shift +} t
+  $TERM -e {gotop, htop}
+
+#Screenshooter
+{_, super} + Print
+  flameshot {gui, \
+             full --clipboard --path ~/img/screenshots/}
+
+#Password manager
+super + p
+  gnome-passwordsafe
+
+#Screen lock
+super + shift + x
+  screenlock
+
+
+#Media / volume
+#Previous, next, play/pause
+super + {comma, period, slash}
+  playerctl {previous, \
+             next, \
+             play-pause}
+
+#Volume, mute
+super + {_, shift +, alt +} {minus, equal}
+  pulseaudio-ctl {down 5, \
+                  down 10, \
+                  mute, \
+                  up 5, \
+                  up 10, \
+                  set 100}
+
+#Pavucontrol
+super + backslash
+  pavucontrol

@@ -1,0 +1,18 @@
+#!/bin/sh
+
+actions="Poweroff\n
+         Suspend\n
+         Reboot"
+
+askaction() { \
+  chosen=$(echo -e $actions \
+         | sed "s/ //g" \
+         | rofi -width 15 -lines $(echo -e $actions | wc -l) -dmenu -i -p "Power menu")
+  echo $chosen
+  }
+
+case $(askaction) in
+  Poweroff) poweroff ;;
+  Suspend) systemctl suspend ;;
+  Reboot) reboot ;;
+esac

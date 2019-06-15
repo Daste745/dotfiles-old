@@ -1,0 +1,4 @@
+#!/bin/sh
+
+killall flashfocus
+flashfocus --flash-lone-windows never &
