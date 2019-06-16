@@ -1,10 +1,19 @@
 export PATH="$PATH:$HOME/bin"
 
-fish_vi_key_bindings
+# Set vi key bindings
+fish_hybrid_key_bindings
+
+# Set the prompt
+function fish_prompt
+    echo -n (set_color red)"$USER@"(prompt_hostname)"❯"
+    echo -n (set_color cyan)(prompt_pwd)"❯"
+    echo -n (set_color red)(git branch 2> /dev/null | awk '{print $2}')"❯"
+    echo -n " "
+end
 
 #Env variables
 export TERM="st"
-#export BROWSER="vivaldi-snapshot"
+export BROWSER="vivaldi-snapshot"
 export EDITOR="vim"
 
 abbr _ "sudo"
@@ -22,7 +31,8 @@ abbr ss "sudo pacman -S"
 abbr sr "sudo pacman -Rs"
 abbr syu "sudo pacman -Syu"
 abbr clip "xclip -selection clipboard"
-alias git-dot="git --git-dir ~/.dotfiles --work-tree ~"
+abbr ytdwn "youtube-dl -x --embed-thumbnail --audio-quality 6 --audio-format mp3"
+abbr git-dot "git --git-dir ~/.dotfiles --work-tree ~"
 alias gpuwatch="python3.7 -m gpustat -i -c"
 
 abbr bin "cd ~/bin"
