@@ -1,0 +1,13 @@
+#!/usr/bin/python3.7
+
+from hastebin import post
+import fileinput
+import sys
+
+if len(sys.argv) < 2:
+    output = "".join(fileinput.input())
+else:
+    with open(sys.argv[1], "r") as f:
+        output = f.read()
+
+print(post(output.encode("utf-8")))
