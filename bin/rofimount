@@ -15,8 +15,8 @@ getmount() { \
   }
 
 mountusb() { \
-  chosen="$(echo "$usbdrives" | rofi -width 20 -lines 7 -dmenu -i -p "Mount which drive?" | awk '{print $1}')"
-  sudo -A mount "$chosen" && notify-send "💻 USB mounting" "$chosen mounted." && exit 0
+  chosen="$(echo "$usbdrives" | rofi -width 20 -lines 8 -dmenu -i -p "Mount which drive?" | awk '{print $1}')"
+  sudo -A mount "$chosen" && notify-send -a "USB mounting" "$chosen mounted." && exit 0
   alreadymounted=$(lsblk -nrpo "name,type,mountpoint" | awk '$2=="part"&&$3!~/\/boot|\/home$|SWAP/&&length($3)>1{printf "-not \( -path *%s -prune \) \ \n",$3}')
   getmount "/mnt /media /mount /home -maxdepth 5 -type d $alreadymounted"
   partitiontype="$(lsblk -no "fstype" "$chosen")"
@@ -24,18 +24,18 @@ mountusb() { \
     "vfat") sudo -A mount -t vfat "$chosen" "$mp" -o rw,umask=0000;;
     *) sudo -A mount "$chosen" "$mp"; user="$(whoami)"; ug="$(groups | awk '{print $1}')"; sudo -A chown "$user":"$ug" 741 "$mp";;
   esac
-  notify-send "💻 USB mounting" "$chosen mounted to $mp."
+  notify-send -a "USB mounting" "$chosen mounted to $mp."
   }
 
 mountandroid() { \
   chosen=$(echo "$anddrives" | rofi -width 30 -dmenu -i -p "Which Android device?" | cut -d : -f 1)
   getmount "$HOME -maxdepth 3 -type d"
   simple-mtpfs --device "$chosen" "$mp"
-  notify-send "🤖 Android Mounting" "Android device mounted to $mp."
+  notify-send -a "Android Mounting" "Android device mounted to $mp."
   }
 
 asktype() { \
-  case $(printf "USB\\nAndroid" | rofi -width 29 -dmenu -i -p "Mount a USB drive or Android device?") in
+  case $(printf "USB\\nAndroid" | rofi -width 30 -dmenu -i -p "Mount a USB drive or Android device?") in
     USB) mountusb ;;
     Android) mountandroid ;;
   esac

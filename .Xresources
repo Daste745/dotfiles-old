@@ -11,24 +11,18 @@ Xft.rgba: rgb
 Xft.lcdfilter: lcddefault
 
 !! Rofi
-rofi.modi: run
-rofi.width: 20
-rofi.lines: 3
+rofi.modi: drun
+rofi.width: 40
+rofi.lines: 15
 rofi.padding: 2
 rofi.yoffset: -300
-!rofi.color: ${xrdb:color0}
-rofi.opacity: 100
-rofi.bw: 0
-rofi.font: System San Francisco Display 18
-!rofi.font: mono 20
+rofi.bw: 2
+rofi.font: System San Francisco Display 16
 rofi.fixed-num-lines: false
-!rofi.show-icons: true
 rofi.terminal: st
 rofi.run-command: {cmd}
 rofi.run-shell-command: {terminal} -e {cmd}
-!rofi.icon-theme: Adwaita
+rofi.icon-theme: Numix
 rofi.show-match: false
-!rofi.sort: true
-!rofi.sorting-method: fzf
 !rofi.sidebar-mode: true
 rofi.hide-scrollbar: true
