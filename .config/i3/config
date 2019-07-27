@@ -40,7 +40,7 @@ client.background       $bg
 gaps inner 10
 gaps outer 0
 smart_gaps enable
-default_border pixel 1
+default_border pixel 2
 hide_edge_borders smart
 
 #Auto move new windows to workspaces

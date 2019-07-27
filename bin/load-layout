@@ -1,9 +1,0 @@
-#!/bin/sh
-
-apps=$(grep "name" ~/.config/i3/layouts/webdev.json | awk '{print $2  $3}' | sed 's/\// \//; s/"//g; s/,//g')
-
-i3-msg "workspace 5; append_layout ~/.config/i3/layouts/webdev.json"
-
-for app in "$apps"; do
-  $TERM -e fish -c "$app" &
-done

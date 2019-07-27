@@ -21,7 +21,7 @@ super + Return
 
 #Program launcher
 super + r
-  rofi -show run
+  rofi -show drun -show-icons
 
 #Ranger file manager
 super + e
