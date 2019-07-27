@@ -18,14 +18,17 @@ set $ws10 "10"
 
 #Colors
 set_from_resource $bg xrdb.color0 #976867
-set_from_resource $fg xrdb.color2 #947B85
-set_from_resource $fg-alt xrdb.color1 #D64841
+set_from_resource $fg xrdb.color1 #947B85
+set_from_resource $fg-alt xrdb.color2 #D64841
+
+set $exec exec --no-startup-id
+set $exec_always exec_always --no-startup-id
 
 
 #------Appearance------#
 
 
-#Windows colors
+#Window colors
 #                       border  background text indicator child_border
 client.focused          $fg     $bg        $fg  $fg       $fg
 client.unfocused        $fg-alt $bg        $fg  $fg-alt   $fg-alt
@@ -48,39 +51,40 @@ for_window [class="Lutris"] move to workspace $ws7
 for_window [class="Steam"] move to workspace $ws7
 for_window [class="MultiMC5"] move to workspace $ws7
 for_window [class="Spotify"] move to workspace $ws8
+for_window [class="Transmission-gtk"] move to workspace $ws9
 
 
 #------Starting Scripts------#
 
 
-#Launch polybar, auto hide based if fulscreen and restart with i3
-exec_always --no-startup-id ~/bin/polybar-start
-exec --no-startup-id python3.7 ~/.scripts/i3listen.py
+#Launch polybar + i3listen, which hiden polybar based on fullscreen apps
+$exec_always ~/bin/polybar-start
+$exec python3.7 ~/.scripts/i3listen.py
 
 #Launch compton
-exec --no-startup-id ~/bin/compton-start
+$exec ~/bin/compton-start
 
 #Launch flashfocus
-exec --no-startup-id ~/bin/flashfocus-start
+$exec ~/bin/flashfocus-start
 
 #Entr autoreloaders
-exec --no-startup-id echo ~/dot/compton | entr -p ~/bin/compton-start
-exec --no-startup-id echo ~/dot/i3 | entr -p i3-msg reload
-exec --no-startup-id echo ~/dot/sxhkdrc | entr -p killall -10 sxhkd
-exec --no-startup-id echo ~/dot/Xresources | entr -p xrdb ~/.Xresources; wal -R
+$exec echo ~/dot/compton | entr -p ~/bin/compton-start
+$exec echo ~/dot/i3 | entr -p i3-msg reload
+$exec echo ~/dot/sxhkdrc | entr -p killall -10 sxhkd
+$exec echo ~/dot/Xresources | entr -p xrdb ~/.Xresources
 
 #Launch some apps
-exec --no-startup-id vivaldi-snapshot
-exec --no-startup-id discord
-exec --no-startup-id spotify
+$exec vivaldi-snapshot
+$exec discord
+$exec spotify
 
 
 #------Key Bindings------#
 
 
 #Remap capslock to escape
-exec_always --no-startup-id xmodmap -e "clear lock"
-exec_always --no-startup-id xmodmap -e "keycode 66 = Escape NoSymbol Escape"
+$exec_always xmodmap -e "clear lock"
+$exec_always xmodmap -e "keycode 66 = Escape NoSymbol Escape"
 
 #Set the modifier key for moving floating windows with mouse
 floating_modifier $mod
@@ -96,7 +100,7 @@ bindsym $mod+d focus child
 bindsym $mod+f fullscreen toggle
 bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'Exit i3?' -B 'Yes, exit i3' 'i3-msg exit'"
 
 #Move window focus
 bindsym $mod+h focus left

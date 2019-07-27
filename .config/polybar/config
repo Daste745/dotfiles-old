@@ -17,9 +17,9 @@
 ;==========================================================
 
 [colors]
-background = ${xrdb:color0}
-background-alt = ${xrdb:color2}
-foreground = ${xrdb:color7}
+background = ${xrdb:color0:#0D0C0F}
+background-alt = ${xrdb:color2:#938166}
+foreground = ${xrdb:color7:#E4DFDB}
 foreground-alt = #555
 primary = #ffb52a
 secondary = #e60053
@@ -31,7 +31,7 @@ width = 100%
 height = 20
 ;offset-x = 1%
 ;offset-y = 1%
-radius = 0
+;radius = 10
 fixed-center = true
 
 background = ${colors.background}
@@ -39,7 +39,10 @@ foreground = ${colors.foreground}
 
 line-size = 0
 line-color = #f00
-separator = "| "
+separator = "|"
+
+tray-transparent = true
+tray-offset-y = -2
 
 border-size = 0
 border-color = #000000
@@ -47,7 +50,7 @@ border-color = #000000
 padding-left = 0
 padding-right = 0
 
-module-margin-left = 0
+module-margin-left = 1
 module-margin-right = 1
 
 font-0 = "Noto Sans Mono:style=Regular:size=8"
@@ -65,15 +68,15 @@ tray-padding = 6
 ;wm-restack = bspw m
 ;wm-restack = i3
 
-override-redirect  = false
+override-redirect = false
 enable-ipc = true
 
 cursor-click = pointer
 cursor-scroll = ns-resize
 
-[module/xwindow]
-type = internal/xwindow
-label = %title:0:30:...%
+;[module/xwindow]
+;type = internal/xwindow
+;label = %title:0:30:...%
 
 ;[module/xkeyboard]
 ;type = internal/xkeyboard
@@ -106,7 +109,7 @@ type = internal/i3
 format = <label-state> <label-mode>
 index-sort = true
 
-ws-icon-0 = "1;"
+ws-icon-0 = "1;"
 ws-icon-1 = "2;"
 ws-icon-2 = "3;"
 ws-icon-3 = "4;"
@@ -114,7 +117,7 @@ ws-icon-4 = "5;"
 ws-icon-5 = "6;"
 ws-icon-6 = "7;"
 ws-icon-7 = "8;"
-ws-icon-8 = "9;"
+ws-icon-8 = "9;"
 ws-icon-9 = "10;"
 
 ; Only show workspaces on the same output as the bar
@@ -285,7 +288,7 @@ format-underline = ${colors.background-alt}
 
 [module/gpu]
 type = custom/script
-interval = 1
+interval = 2
 format = GPU <label>
 exec = ~/bin/polybar/gpu
 format-underline = ${colors.background-alt}
