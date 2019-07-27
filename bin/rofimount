@@ -9,13 +9,13 @@ getmount() { \
   mp="$(find $1 | rofi -width 30 -lines 10 -dmenu -i -p "Type in mount point.")"
   [ "$mp" = "" ] && exit 1
   if [ ! -d "$mp" ]; then
-    mkdiryn=$(printf "No\\nYes" | rofi -width 30 -lines 2 -dmenu -i -p "$mp does not exist. Create it?")
+    mkdiryn=$(printf "No\\nYes" | rofi -width 30 -dmenu -i -p "$mp does not exist. Create it?")
     [ "$mkdiryn" = "Yes" ] && (mkdir -p "$mp" || sudo -A mkdir -p "$mp")
   fi
   }
 
 mountusb() { \
-  chosen="$(echo "$usbdrives" | rofi -width 20 -lines 10 -dmenu -i -p "Mount which drive?" | awk '{print $1}')"
+  chosen="$(echo "$usbdrives" | rofi -width 20 -lines 7 -dmenu -i -p "Mount which drive?" | awk '{print $1}')"
   sudo -A mount "$chosen" && notify-send "💻 USB mounting" "$chosen mounted." && exit 0
   alreadymounted=$(lsblk -nrpo "name,type,mountpoint" | awk '$2=="part"&&$3!~/\/boot|\/home$|SWAP/&&length($3)>1{printf "-not \( -path *%s -prune \) \ \n",$3}')
   getmount "/mnt /media /mount /home -maxdepth 5 -type d $alreadymounted"
@@ -28,14 +28,14 @@ mountusb() { \
   }
 
 mountandroid() { \
-  chosen=$(echo "$anddrives" | rofi -width 30 -lines 5 -dmenu -i -p "Which Android device?" | cut -d : -f 1)
+  chosen=$(echo "$anddrives" | rofi -width 30 -dmenu -i -p "Which Android device?" | cut -d : -f 1)
   getmount "$HOME -maxdepth 3 -type d"
   simple-mtpfs --device "$chosen" "$mp"
   notify-send "🤖 Android Mounting" "Android device mounted to $mp."
   }
 
 asktype() { \
-  case $(printf "USB\\nAndroid" | rofi -width 29 -lines 2 -dmenu -i -p "Mount a USB drive or Android device?") in
+  case $(printf "USB\\nAndroid" | rofi -width 29 -dmenu -i -p "Mount a USB drive or Android device?") in
     USB) mountusb ;;
     Android) mountandroid ;;
   esac

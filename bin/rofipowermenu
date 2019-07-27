@@ -7,7 +7,7 @@ actions="Poweroff\n
 askaction() { \
   chosen=$(echo -e $actions \
          | sed "s/ //g" \
-         | rofi -width 15 -lines $(echo -e $actions | wc -l) -dmenu -i -p "Power menu")
+         | rofi -width 15 -dmenu -i -p "Power menu")
   echo $chosen
   }
 

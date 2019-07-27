@@ -1,0 +1,40 @@
+#!/usr/bin/python3.7
+
+import os
+from math import pi, sqrt, sin, cos, tan, log, floor, ceil
+
+ans = None
+history = []
+while True:
+    ask_string = f"{ans if ans else ''}>"
+    input_string = input(ask_string).replace("ans", str(ans) if ans else "0")
+
+    if input_string in ["c", "clear", "cls"]:
+        os.system("clear")
+        continue
+    elif any(input_string.startswith(i) for i in ["h", "history", "hist"]):
+        if len(input_string.split()) < 2:
+            print("\n".join(history))
+            continue
+        history_limit = int(input_string.split()[1])
+        print("\n".join(history[-history_limit:]))
+        continue
+    elif input_string in ["q", "quit", "exit"]:
+        exit()
+    elif any(input_string.startswith(i) for i in ["w", "write"]):
+        if len(input_string.split()) < 2:
+            filename = input("Input filename to write to: ")
+        else:
+            filename = input_string.split()[1]
+        print(f"Writing calculator history to {filename}")
+        with open(filename, "w") as f:
+            f.write("\n".join(history))
+        continue
+
+    try:
+        ans = eval(input_string)
+    except Exception as e:
+        print(e)
+        continue
+    history.append(f"{input_string} = {ans}")
+    print(history[-1])
