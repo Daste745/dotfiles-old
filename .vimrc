@@ -181,6 +181,7 @@ if empty(glob('~/.vim/autoload/plug.vim'))
     endif
 
 call plug#begin('~/.vim/plugged')
-Plug 'https://gitlab.com/betseg/vim-dcrpc.git'
-let g:dcrpc_autostart = 1
+" Plug 'https://gitlab.com/betseg/vim-dcrpc.git'
+" let g:dcrpc_autostart = 1
+Plug 'junegunn/goyo.vim'
 call plug#end()
