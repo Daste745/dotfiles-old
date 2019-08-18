@@ -17,9 +17,10 @@ set $ws9 "9"
 set $ws10 "10"
 
 #Colors
-set_from_resource $bg xrdb.color0 #976867
-set_from_resource $fg xrdb.color1 #947B85
-set_from_resource $fg-alt xrdb.color2 #D64841
+set_from_resource $bg     xrdb.color0 #0D0C0F
+set_from_resource $fg     xrdb.color2 #938166
+set_from_resource $fg-alt xrdb.color4 #938166
+set               $alert              #bd2c40
 
 set $exec exec --no-startup-id
 set $exec_always exec_always --no-startup-id
@@ -29,11 +30,11 @@ set $exec_always exec_always --no-startup-id
 
 
 #Window colors
-#                       border  background text indicator child_border
-client.focused          $fg     $bg        $fg  $fg       $fg
-client.unfocused        $fg-alt $bg        $fg  $fg-alt   $fg-alt
-client.urgent           $fg     $bg        $fg  $fg       $fg
-client.placeholder      $fg     $bg        $fg  $fg       $fg
+#                       border   background  text  indicator  child_border
+client.focused          $fg-alt  $bg         $fg   $fg-alt    $fg-alt
+client.unfocused        $fg      $bg         $fg   $fg        $fg
+client.urgent           $alert   $bg         $fg   $fg        $fg
+client.placeholder      $fg      $bg         $fg   $fg        $fg
 client.background       $bg
 
 #Gaps and borders
@@ -41,12 +42,19 @@ gaps inner 10
 gaps outer 0
 smart_gaps enable
 default_border pixel 2
+for_window [class="^.*"] border pixel 2
 hide_edge_borders smart
 
+#Auto enable floating for certain windows
+for_window [class="java-lang-Thread"] floating enable
+for_window [class="JetBrains Toolbox"] floating enable
+for_window [class="flameshot"] floating enable
+
 #Auto move new windows to workspaces
-for_window [class="Vivaldi-snapshot"] move to workspace $ws1
+for_window [class="^Vivaldi-snapshot"] move to workspace $ws1
 for_window [class="discord"] move to workspace $ws2
-for_window [class="jetbrains-pycharm"] move to workspace $ws5
+for_window [class="jetbrains-"] move to workspace $ws5
+for_window [class="java-lang-Thread"] move to workspace $ws5
 for_window [class="Lutris"] move to workspace $ws7
 for_window [class="Steam"] move to workspace $ws7
 for_window [class="MultiMC5"] move to workspace $ws7
@@ -59,7 +67,7 @@ for_window [class="Transmission-gtk"] move to workspace $ws9
 
 #Launch polybar + i3listen, which hiden polybar based on fullscreen apps
 $exec_always ~/bin/polybar-start
-$exec python3.7 ~/.scripts/i3listen.py
+$exec python3.7 ~/scripts/i3listen.py
 
 #Launch compton
 $exec ~/bin/compton-start
@@ -68,10 +76,10 @@ $exec ~/bin/compton-start
 $exec ~/bin/flashfocus-start
 
 #Entr autoreloaders
-$exec echo ~/dot/compton | entr -p ~/bin/compton-start
-$exec echo ~/dot/i3 | entr -p i3-msg reload
-$exec echo ~/dot/sxhkdrc | entr -p killall -10 sxhkd
-$exec echo ~/dot/Xresources | entr -p xrdb ~/.Xresources
+$exec echo ~/config/compton | entr -p ~/bin/compton-start
+$exec echo ~/config/i3/config | entr -p i3-msg reload
+$exec echo ~/config/sxhkd/sxhkdrc | entr -p killall -10 sxhkd
+$exec echo ~/Xresources | entr -p xrdb ~/.Xresources
 
 #Launch some apps
 $exec vivaldi-snapshot
@@ -83,8 +91,8 @@ $exec spotify
 
 
 #Remap capslock to escape
-$exec_always xmodmap -e "clear lock"
-$exec_always xmodmap -e "keycode 66 = Escape NoSymbol Escape"
+#$exec_always xmodmap -e "clear lock"
+#$exec_always xmodmap -e "keycode 66 = Escape NoSymbol Escape"
 
 #Set the modifier key for moving floating windows with mouse
 floating_modifier $mod
