@@ -42,7 +42,7 @@ line-color = #f00
 separator = "|"
 
 tray-transparent = true
-tray-offset-y = -2
+tray-offset-y = 0
 
 border-size = 0
 border-color = #000000
