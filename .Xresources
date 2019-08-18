@@ -1,5 +1,7 @@
-!! Transparency (0-255):
-*.alpha: 190
+! Transparency (0-1):
+st.alpha: 0.65
+
+st.background: #0D0C0F
 
 !! Font
 Xft.autohint: 0
@@ -24,5 +26,4 @@ rofi.run-command: {cmd}
 rofi.run-shell-command: {terminal} -e {cmd}
 rofi.icon-theme: Numix
 rofi.show-match: false
-!rofi.sidebar-mode: true
 rofi.hide-scrollbar: true
