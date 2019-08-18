@@ -34,7 +34,7 @@ super + {_, shift +} t
 #Screenshooter
 {_, super} + Print
   flameshot {gui, \
-             full --clipboard --path ~/img/screenshots/}
+             full --clipboard --path ~/img/screenshots}
 
 #Password manager
 super + p
