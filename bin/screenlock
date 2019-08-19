@@ -1,7 +1,13 @@
 #!/bin/bash
-scrot /tmp/screen.png
-convert /tmp/screen.png -scale 5% -scale 2000% /tmp/screen.png
-[[ -f $1 ]] && convert /tmp/screen.png $1 -gravity center -composite -matte /tmp/screen.png
-dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Stop
-i3lock -i /tmp/screen.png
-rm /tmp/screen.png
+scrot -z /tmp/screen.png  # save a temporary screenshot
+convert /tmp/screen.png -scale 5% -scale 2000% /tmp/screen.png  # pizelize the screenshot
+#[[ -f $1 ]] && convert /tmp/screen.png $1 -gravity center -composite -matte /tmp/screen.png
+
+dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Stop  # pause spotify playback
+killall -SIGUSR1 dunst  # pause notifications
+
+i3lock -i /tmp/screen.png  # run the lock
+
+sleep 1
+killall -SIGUSR2 dunst  # resume notifications
+rm /tmp/screen.png  # clean up the screenshot
