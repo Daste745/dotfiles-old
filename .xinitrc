@@ -1,1 +1,4 @@
-exec i3
+#~/.xprofile
+
+#exec i3
+#exec startkde
