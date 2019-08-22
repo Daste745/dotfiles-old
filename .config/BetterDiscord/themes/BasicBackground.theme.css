@@ -21,7 +21,8 @@
 .chat-3bRxxu form:after,
 .channels-Ie2l6A > div:nth-child(2),
 .theme-dark .container-3baos1, .theme-light .container-3baos1,
-.theme-dark .wrapper-29NfPK {
+.theme-dark .wrapper-29NfPK,
+.da-backdrop::after {
   background: transparent!important;
 }
 
@@ -35,13 +36,14 @@
 }
 
 /* Remove unnecessary border from voice connected state */
-.chat-3bRxxu form:after, .channels-Ie2l6A > div:nth-child(2), .theme-dark .container-3baos1, .theme-light .container-3baos1,
+.da-container,
+.da-channelTextArea,
 .da-inner {
   border: 0!important;
 }
 
-/* Remove that weird arrow thing when you are uploading a file 
-.da-wrapper::after {
-  display: none;
-}*/
+/* Make the "23 August 2019" chat divider show as text without any dividing lines */
+.da-dividerContent {
+  display: block;
+}
 
