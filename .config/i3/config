@@ -38,12 +38,14 @@ client.placeholder      $fg      $bg         $fg   $fg        $fg
 client.background       $bg
 
 #Gaps and borders
-gaps inner 10
+gaps inner 15
 gaps outer 0
 smart_gaps enable
-default_border pixel 2
-for_window [class="^.*"] border pixel 2
-hide_edge_borders smart
+#default_border pixel 2
+#for_window [class="^.*"] border pixel 2
+#hide_edge_borders smart
+default_border none
+for_window [class="^.*"] border none
 
 #Auto enable floating for certain windows
 for_window [class="java-lang-Thread"] floating enable
