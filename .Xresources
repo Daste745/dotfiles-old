@@ -1,6 +1,5 @@
 ! Transparency (0-1):
-st.alpha: 0.65
-
+st.alpha: 0.7
 st.background: #0D0C0F
 
 !! Font
