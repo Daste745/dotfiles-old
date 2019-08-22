@@ -1,0 +1,12 @@
+#!/bin/bash
+
+# Ask for text to input
+text=$(rofi -dmenu -i -p "Text to qr code")
+
+# If input text is not empty, generate the image
+if [ -n "$text" ]; then
+  qrencode -o /tmp/qr.png -s 10 - && \
+  xclip -selection clipboard -t image/png -i /tmp/qr.png && \
+  feh /tmp/qr.png && \
+  rm /tmp/qr.png
+fi
