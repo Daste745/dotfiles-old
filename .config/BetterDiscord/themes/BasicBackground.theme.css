@@ -8,7 +8,7 @@
   --messagetransparency: 0;
   --guildchanneltransparency: 0;
   --memberlistransparency: 0;
-  --accentcolor: 103, 89, 136;
+  --accentcolor: 204, 135, 122;
   --background: transparent;
   --backgroundsize: cover;
   --backdrop: rgba(0, 0, 0, 0);
@@ -23,7 +23,7 @@
 .theme-dark .container-3baos1, .theme-light .container-3baos1,
 .theme-dark .wrapper-29NfPK,
 .da-backdrop::after {
-  background: transparent!important;
+  background: transparent !important;
 }
 
 /* Backround of code blocks, embeds and invites */
@@ -32,7 +32,7 @@
 .da-invite,
 .da-attachment,
 .da-messageGroupBlockedBtn {
-  background: rgba(var(--transparencycolor), 0.3)!important;
+  background: rgba(var(--transparencycolor), 0.3) !important;
 }
 
 /* Remove unnecessary border from voice connected state */
@@ -44,6 +44,26 @@
 
 /* Make the "23 August 2019" chat divider show as text without any dividing lines */
 .da-dividerContent {
-  display: block;
+  display: -webkit-box;
 }
 
+/* Remove the margin from user popouts */
+.userPopout-3XzG_A .body-3iLsc4 {
+  margin: 0 !important;
+}
+
+/* Remove protips */
+.da-protip {
+  display: none;
+}
+
+/* Make the use profile bigger */
+.da-userPopout {
+  width: 300px;
+}
+
+/* Remove borders from roles in user popouts */
+.role-2irmRk {
+  border: none;
+  height: 20px;
+}
