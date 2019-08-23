@@ -92,10 +92,6 @@ $exec spotify
 #------Key Bindings------#
 
 
-#Remap capslock to escape
-#$exec_always xmodmap -e "clear lock"
-#$exec_always xmodmap -e "keycode 66 = Escape NoSymbol Escape"
-
 #Set the modifier key for moving floating windows with mouse
 floating_modifier $mod
 
