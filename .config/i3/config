@@ -82,6 +82,7 @@ $exec echo ~/.config/compton | entr -p ~/bin/compton-start
 $exec echo ~/.config/i3/config | entr -p i3-msg reload
 $exec echo ~/.config/sxhkd/sxhkdrc | entr -p killall -10 sxhkd
 $exec echo ~/.Xresources | entr -p xrdb ~/.Xresources
+$exec echo ~/.cache/wal/colors | entr -p ~/bin/waldiscordtheme
 
 #Launch some apps
 $exec vivaldi-snapshot
