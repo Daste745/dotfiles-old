@@ -27,6 +27,10 @@ super + r
 super + e
   $TERM -e ranger
 
+# Calculator
+super + q
+  rofi -show calc
+
 #Process manager
 super + {_, shift +} t
   $TERM -e {gotop, htop}
