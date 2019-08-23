@@ -1,4 +1,4 @@
-//META{"name":"WalColorScheme","desription":"","author":"Predator","version":"1.0"}*//{}
+//META{"name":"WalColorScheme","description":"Used to integrate pywal with the BasicBackground theme.","author":"Predator","version":"1.0"}*//{}
 
 :root {
   --transparencycolor: 16, 12, 25 !important;
