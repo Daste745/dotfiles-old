@@ -1,0 +1,6 @@
+//META{"name":"WalColorScheme","desription":"","author":"Predator","version":"1.0"}*//{}
+
+:root {
+  --transparencycolor: 16, 12, 25 !important;
+  --accentcolor: 204, 135, 122 !important;
+}
