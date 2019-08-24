@@ -1,4 +1,4 @@
-#/bin/sh
+#!/bin/sh
 
 pngfile="/tmp/sclock.png"
 bmpfile="/tmp/sclock.bmp"
@@ -20,6 +20,10 @@ magick convert -rotate -90 $glitchedfile $glitchedfile
 
 # Convert to png
 magick convert $glitchedfile $pngfile
+
+# Pause spotify playback and notifications
+dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Stop
+killall -SIGUSR1 dunst
 
 # Lock the screen with the glitched screenshot
 i3lock -i $pngfile
