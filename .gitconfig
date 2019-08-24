@@ -1,0 +1,78 @@
+[user]
+  email = stefankar1000@gmail.com
+  name = Stefankar1000
+
+
+[color]
+    ui = auto
+[color "branch"]
+    current = yellow reverse
+    local = yellow
+    remote = green
+[color "diff"]
+    meta = yellow bold
+    frag = magenta bold
+    old = red bold
+    new = green bold
+[color "status"]
+    added = yellow
+    changed = green
+    untracked = cyan
+
+[alias]
+    tree = log --pretty=format:'%Cred%h%Creset %C(bold blue)<%an>%Creset%C(yellow)%d%Creset %Cgreen(%cr)%Creset%n%w(80,8,8)%s' --graph
+    bigtree = log --pretty=format:'%Cred%h%Creset %C(bold blue)<%an>%Creset%C(yellow)%d%Creset %Cgreen(%cr)%Creset%n%w(80,8,8)%s%n' --graph --name-status
+    commits = log --pretty=format:'%C(yellow)%h %Cred%ad %Cblue%an%Cgreen%d %Creset%s' --date=iso
+
+# Nsfw config
+    drzewokurwa = log --pretty=format:'%Cred%h%Creset %C(bold blue)<%an>%Creset%C(yellow)%d%Creset %Cgreen(%cr)%Creset%n%w(80,8,8)%s' --graph
+    duzedrzewokurwa = log --pretty=format:'%Cred%h%Creset %C(bold blue)<%an>%Creset%C(yellow)%d%Creset %Cgreen(%cr)%Creset%n%w(80,8,8)%s%n' --graph --name-status
+    komitykurwa = log --pretty=format:'%C(yellow)%h %Cred%ad %Cblue%an%Cgreen%d %Creset%s' --date=iso
+
+    ktotokurwa = "!sh -c 'git log -i -1 --pretty=\"format::%an <%ae>\n\" --author=\"$1\"' -"
+    cotokurwa = show -s --pretty='tformat::%h (%s, %ad)' --date=short
+
+    cotamkurwa = !sh -c 'git fetch' && git log --oneline HEAD..origin/$1
+    cotammistrzukurwa = !sh -c 'git fetch' && git log --oneline HEAD..origin/master
+    ktotamkurwa = !sh -c 'git shortlog HEAD..origin/$0'
+    ktotammistrzukurwa = !sh -c 'git shortlog HEAD..origin/master'
+
+    tagikurwa = show-ref --tags
+    pchajtagikurwa = push --tags
+    tagujzdatakurwa = !sh -c 'git tag "$0"_$(date "+%y-%m-%d_%H-%M-%S")'
+    wyjebtag = !sh -c 'git tag -d "$0"'
+    wyjebtagwchuj = !sh -c 'git tag -d "$0" && git push --delete origin tag "$0"'
+
+    pojebalosiekurwa = reset --hard
+
+    ktonajebalkurwa = blame
+
+    kurwa = status
+    cokurwa = status
+    cojestkurwa = diff
+    howcanikurwa = help
+    nabokkurwa = stash
+    zbokukurwa = stash apply
+    sprzatajkurwa = clean
+    sprzatajwszystkokurwa = !sh -c 'git clean -x' && git reset --hard
+    wyjebzrobionekurwa = !sh -c 'git branch --merged' | grep -v "\\*" | grep -v master | grep -v dev | xargs -n 1 git branch -d
+
+    dodajkurwa = add
+    takkurwa = commit
+    sciagajkurwa = pull
+    sciagajtegokurwa = !sh -c 'git pull origin $(git rev-parse --abbrev-ref HEAD)'
+    dalejkurwa = push
+    dalejnowociotokurwa = push -u origin master
+    pchajkurwa = push
+    pchajkurwayolo = push --force
+    sorrykurwa = commit --amend -m
+
+    cofnijwchuj = reset HEAD~100
+    wypierdolwchuj = reset HEAD~100 --hard
+    acomitamkurwa = push origin --force
+
+    palisiekurwa = !sh -c 'git add . && git commit -m \"palilo sie\" && git push --force && echo \"Ok, now RUN!\"'
+
+[apply]
+whitespace = nowarn
+
