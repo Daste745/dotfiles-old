@@ -1,0 +1,28 @@
+#/bin/sh
+
+pngfile="/tmp/sclock.png"
+bmpfile="/tmp/sclock.bmp"
+glitchedfile="/tmp/sclock_g.bmp"
+
+# Take the screenshot
+scrot -z $pngfile
+
+# Convert to bmp and pixelate
+magick convert -scale 20% -scale 500% $pngfile $bmpfile
+
+# Glitch it with sox
+sox -t ul -c 1 -r 48k $bmpfile -t ul $glitchedfile trim 0 100s : echo 0.9 0.9 15 0.9
+
+# Rotate it by 90 degrees, glitch and rotate back to normal
+magick convert -rotate 90 $glitchedfile $bmpfile
+sox -t ul -c 1 -r 48k $bmpfile -t ul $glitchedfile trim 0 90s : echo 0.9 0.9 15 1
+magick convert -rotate -90 $glitchedfile $glitchedfile
+
+# Convert to png
+magick convert $glitchedfile $pngfile
+
+# Lock the screen with the glitched screenshot
+i3lock -i $pngfile
+
+# Clean up the files
+rm $pngfile $bmpfile $glitchedfile
