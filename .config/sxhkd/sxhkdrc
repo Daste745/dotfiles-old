@@ -45,8 +45,9 @@ super + p
   gnome-passwordsafe
 
 #Screen lock
-super + shift + x
-  screenlock
+super + shift + {_, control +} x
+  {screenlock-pixelate, \
+   screenlock-glitch}
 
 #Gimp
 super + g
