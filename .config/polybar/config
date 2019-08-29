@@ -143,7 +143,7 @@ label = CPU %percentage:2%%
 [module/memory]
 type = internal/memory
 interval = 2
-label = MEM %percentage_used%%
+label = RAM %percentage_used%%
 
 
 
