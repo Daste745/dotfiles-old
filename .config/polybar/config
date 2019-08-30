@@ -48,7 +48,7 @@ separator = "|"
 
 modules-left = spotify pulseaudio
 modules-center = i3
-modules-right = cpu memory gpu eth date
+modules-right = cpu memory gpu eth pacman date
 
 tray-position = right
 tray-padding = 6
@@ -165,7 +165,15 @@ format-connected-prefix = "NET "
 format-disconnected-prefix = "NET "
 
 label-connected = ↓%downspeed% ↑%upspeed%
-label-disconnected = %ifname% disconnected
+label-disconnected = disconnected
+
+
+[module/pacman]
+type = custom/script
+exec = ~/bin/polybar/pacman
+interval = 60
+
+format = PKG <label>
 
 
 
