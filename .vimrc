@@ -20,6 +20,9 @@ if (&t_Co > 2 || has("gui_running")) && !exists("syntax_on")
   syntax on
 endif
 
+" Spell checking binding
+map <F6> :setlocal spell! spelllang=en_us<CR>
+
 if filereadable(expand("~/.vimrc.bundles"))
   source ~/.vimrc.bundles
 endif
