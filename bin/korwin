@@ -61,15 +61,10 @@ korwin6=(
   "co lat temu sto nikomu nie przyszłoby nawet do głowy"
 )
 
-# Function to output a random digit from 1 to 6
-random() { \
-  shuf -i 1-6 -n 1
-}
-
 # Output all the parts of Korwin's sentence (add a space to separate them)
-echo -n "${korwin1[random]} "
-echo -n "${korwin2[random]} "
-echo -n "${korwin3[random]} "
-echo -n "${korwin4[random]} "
-echo -n "${korwin5[random]} "
-echo     ${korwin6[random]}
+echo -n "${korwin1[$(shuf -i 1-6 -n 1)]} "
+echo -n "${korwin2[$(shuf -i 1-6 -n 1)]} "
+echo -n "${korwin3[$(shuf -i 1-6 -n 1)]} "
+echo -n "${korwin4[$(shuf -i 1-6 -n 1)]} "
+echo -n "${korwin5[$(shuf -i 1-6 -n 1)]} "
+echo     ${korwin6[$(shuf -i 1-6 -n 1)]}

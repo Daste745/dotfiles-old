@@ -1,6 +1,0 @@
-#!/bin/sh
-
-if [ -n "$(pacman -Qu)" ]; then
-  pacman -Qu | wc -l
-fi
-

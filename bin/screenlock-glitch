@@ -31,3 +31,4 @@ i3lock -i $pngfile
 # Resume notifications and clean up the files
 killall -SIGUSR2 dunst
 rm $pngfile $bmpfile $glitchedfile
+
