@@ -48,7 +48,7 @@ separator = "|"
 
 modules-left = spotify pulseaudio
 modules-center = i3
-modules-right = cpu memory gpu eth pacman date
+modules-right = cpu memory gpu eth date
 
 tray-position = right
 tray-padding = 6
@@ -58,7 +58,7 @@ tray-transparent = true
 
 [module/spotify]
 type = custom/script
-exec = ~/bin/polybar/spotify -f '{play_pause}{artist} - {song}' -t 25
+exec = ~/bin/polybar/spotify --format "{play_pause}{artist} - {song}"
 interval = 2
 
 format = <label>
@@ -166,14 +166,6 @@ format-disconnected-prefix = "NET "
 
 label-connected = ↓%downspeed% ↑%upspeed%
 label-disconnected = disconnected
-
-
-[module/pacman]
-type = custom/script
-exec = ~/bin/polybar/pacman
-interval = 60
-
-format = PKG <label>
 
 
 
