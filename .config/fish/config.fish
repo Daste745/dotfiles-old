@@ -55,3 +55,4 @@ abbr phn "cd ~/phn"
 abbr tmp "cd ~/tmp"
 abbr vid "cd ~/vid"
 alias osudir="cd ~/.local/share/wineprefixes/osu/drive_c/users/stefan/Local\ Settings/Application\ Data/osu!/"
+
