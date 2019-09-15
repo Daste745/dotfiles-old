@@ -52,7 +52,6 @@ modules-right = cpu memory gpu eth date
 
 tray-position = right
 tray-padding = 6
-tray-transparent = true
 
 
 
