@@ -22,7 +22,8 @@
 .channels-Ie2l6A > div:nth-child(2),
 .theme-dark .container-3baos1, .theme-light .container-3baos1,
 .theme-dark .wrapper-29NfPK,
-.da-backdrop::after {
+.da-backdrop::after,
+.da-container {
   background: transparent !important;
 }
 
@@ -38,7 +39,8 @@
 /* Remove unnecessary border from voice connected state */
 .da-container,
 .da-channelTextArea,
-.da-inner {
+.da-inner,
+.da-listeningAlong {
   border: 0!important;
 }
 
