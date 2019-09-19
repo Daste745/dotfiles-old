@@ -71,4 +71,4 @@ super + {_, shift +, alt +} {minus, equal}
 
 #Pavucontrol
 super + backslash
-  pavucontrol
+  $TERM -e pulsemixer
