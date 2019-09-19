@@ -1,0 +1,74 @@
+//META{"name":"SimpleTransparency","description":"Enables transparency for most elements.","author":"Predator","version":"1.0"}*//{}
+
+/* Global variables */
+:root {
+  --background-color: 12, 12, 18;
+  --background-alpha: 0.7;
+}
+
+
+/* Enable transparency for most elements */
+body,                                    /* body */
+#app-mount .app-19_DXt,                  /* appcontainer */
+#app-mount .app-2rEoOp,                  /* appcontainerinner */
+#app-mount .layer-3QrUeG,                /* layercontainer */
+#app-mount .container-PNkimc,            /* channelsinner */
+#app-mount .privateChannels-1nO12o,      /* dmchannels */
+#app-mount .panels-j1Uci_,               /* account/voicecontainer */
+#app-mount .chat-3bRxxu,                 /* chatcontainer */
+#app-mount .noChannel-Z1DQK7,            /* nochannel */
+#app-mount .activityFeed-1C0EmJ,         /* activityfeed */
+#app-mount .gameLibrary-TTDw4Y,          /* library */
+#app-mount .root-1BQpZw,                 /* giftinventory */
+#app-mount .applicationStore-1pNvnv,     /* store */
+#app-mount .lfg-3xoFkI,                  /* LFG */
+#app-mount .container-3gCOGc,            /* friends */
+#app-mount .scroller-2TZvBN,             /* guildsinner */
+#app-mount .scroller-1JbKMe,             /* dmchannelsinner */
+#app-mount .messages-3amgkR,             /* messages */
+#app-mount .members-1998pB,              /* membersinner */
+#app-mount .pageWrapper-1PgVDX,          /* guilddiscovery */
+#app-mount .standardSidebarView-3F1I7i { /* settings */
+  background: transparent;
+}
+
+/* Add a background color to the app */
+#app-mount {
+  background-color: rgba(var(--background-color), var(--background-alpha));
+}
+
+/* Remove the background from some elements to get a more streamline look */
+.da-title,
+.guilds-1SWlCJ,
+.da-themed,
+.da-gameLibrary .da-stickyHeader,
+.da-container pre,
+.da-emojiPicker .da-stickyHeader,
+.da-searchResultsWrap,
+.da-searchHeader,
+.da-channelName,
+.da-searchResult::before,
+.da-searchResult::after,
+.da-searchResultMessage {
+  background: transparent !important;
+}
+
+/* Elements like text fields, embeds and code blocks get a darker background */
+.da-inner,
+.da-autocompleteInner,
+.da-embedWrapper,
+.da-container code,
+.da-expandedFolderBackground,
+.da-expandedFolderIconWrapper,
+.da-acronym,
+.da-contextMenu,
+.da-emojiPicker,
+.da-emojiPicker .da-inner {
+  background-color: rgba(var(--background-color), var(--background-alpha));
+}
+
+/* Remove protips */
+.da-protip {
+   display: none;
+}
+
