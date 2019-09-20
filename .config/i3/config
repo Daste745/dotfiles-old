@@ -38,13 +38,13 @@ client.placeholder      $fg      $bg         $fg   $fg        $fg
 client.background       $bg
 
 #Gaps and borders
-smart_gaps enable
+#smart_gaps enable
 gaps inner 15
 gaps outer 0
 
+#hide_edge_borders smart
 default_border pixel 0
 for_window [class="^.*"] border pixel 0
-hide_edge_borders smart
 border_radius 5
 
 #Auto enable floating for certain windows
