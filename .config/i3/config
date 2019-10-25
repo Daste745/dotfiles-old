@@ -85,7 +85,7 @@ $exec echo ~/.Xresources | entr -p xrdb ~/.Xresources
 $exec echo ~/.cache/wal/colors | entr -p ~/bin/waldiscordtheme
 
 #Launch some apps
-$exec vivaldi-snapshot
+#$exec vivaldi-snapshot
 $exec discord
 $exec spotify
 
