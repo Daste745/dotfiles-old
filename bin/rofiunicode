@@ -6,9 +6,9 @@
 xclip -h >/dev/null || exit
 
 if [ -e ~/.config/fontawesome ]; then
-    chosen=$(grep -v "#" -h ~/.config/emoji ~/.config/fontawesome | rofi -width 40 -lines 25 -dmenu -i -p "Choose symbol to copy")
+    chosen=$(grep -v "#" -h ~/.config/emoji ~/.config/fontawesome | rofi -width 40 -lines 10 -dmenu -i -p "Choose symbol to copy")
 else
-    chosen=$(grep -v "#" ~/.config/emoji | rofi -width 40 -lines 18 -dmenu -i -p "Choose symbol to copy")
+    chosen=$(grep -v "#" ~/.config/emoji | rofi -width 40 -lines 10 -dmenu -i -p "Choose symbol to copy")
 fi
 
 [ "$chosen" != "" ] || exit
