@@ -1,4 +1,4 @@
-! Transparency (0-1):
+!! Transparency (0-1):
 st.alpha: 0.7
 st.background: #0D0C0F
 
@@ -12,17 +12,24 @@ Xft.rgba: rgb
 Xft.lcdfilter: lcddefault
 
 !! Rofi
-rofi.modi: drun
-rofi.width: 40
-rofi.lines: 15
-rofi.padding: 2
-rofi.yoffset: -300
-rofi.bw: 2
+rofi.theme: ~/.cache/wal/colors-rofi-dark.rasi
+rofi.modi: drun,window,calc
+rofi.width: 30
+rofi.lines: 5
 rofi.font: System San Francisco Display 16
+rofi.bw: 0
+rofi.padding: 0
+rofi.yoffset: -200
 rofi.fixed-num-lines: false
+rofi.show-icons: false
 rofi.terminal: st
 rofi.run-command: {cmd}
 rofi.run-shell-command: {terminal} -e {cmd}
 rofi.icon-theme: Numix
+rofi.drun-display-format: {name}
 rofi.show-match: false
 rofi.hide-scrollbar: true
+rofi.eh: 1
+rofi.line-padding: 6
+rofi.separator-style: none
+rofi.window-format: {t}
