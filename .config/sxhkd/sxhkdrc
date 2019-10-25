@@ -23,6 +23,10 @@ super + Return
 super + r
   rofi -show drun -show-icons
 
+#Window switcher
+{super, alt} + Tab
+  rofi -show window -show-icons -lines 10 -width 50
+
 #Ranger file manager
 super + e
   $TERM -e ranger
