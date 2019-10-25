@@ -351,7 +351,7 @@
 # pushback: same as delay, but when switching into fullscreen, the notification will get
 #           withdrawn from screen again and will get delayed like a new notification
 [fullscreen_delay_everything]
-    fullscreen = pushback
+    fullscreen = delay
 [fullscreen_show_critical]
     msg_urgency = critical
     fullscreen = show
