@@ -15,9 +15,10 @@ super + {F1, F2, F3, F4, F5, F6, F7, F8, F9, F10, F11, F12}
 
 
 #Applications
+
 #Terminal
 super + Return
-  $TERM
+  $TERMINAL
 
 #Program launcher
 super + r
@@ -29,7 +30,7 @@ super + r
 
 #Ranger file manager
 super + e
-  $TERM -e ranger
+  $TERMINAL -e ranger
 
 # Calculator
 super + q
@@ -37,12 +38,15 @@ super + q
 
 #Process manager
 super + {_, shift +} t
-  $TERM -e {gotop, htop}
+  $TERMINAL -e {gotop, htop}
 
 #Screenshooter
 {_, super} + Print
   flameshot {gui, \
              full --clipboard --path ~/img/screenshots}
+
+{super, shift} + alt + s
+  flameshot gui
 
 #Password manager
 super + p
@@ -57,7 +61,9 @@ super + shift + {_, control +} x
 super + g
   gimp
 
+
 #Media / volume
+
 #Previous, next, play/pause
 super + {comma, period, slash}
   playerctl {previous, \
@@ -73,6 +79,6 @@ super + {_, shift +, alt +} {minus, equal}
                   up 10, \
                   set 100}
 
-#Pavucontrol
+#Audio mixer
 super + backslash
-  $TERM -e pulsemixer
+  $TERMINAL -e pulsemixer
