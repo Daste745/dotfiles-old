@@ -7,4 +7,3 @@ sxhkd &                              # Launch the simple x hotkey daemon
 wal -R &                             # Restore the wallpaper and color scheme
 [ ! -s ~/.config/mpd/pid ] && mpd &  # Run the music player daemon
 dunst &                              # Launch the dunst notification daemon
-syncthing &                          # Launch syncthing
