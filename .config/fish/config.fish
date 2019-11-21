@@ -1,12 +1,11 @@
 #Env variables
-export GOROOT="$HOME/dev/go"
-export TERM="st"
+export TERMINAL="kitty"
 export EDITOR="vim"
 export DOTNET_CLI_TELEMETRY_OPTOUT="true"
 export PATH="$PATH:$HOME/bin:$GOROOT/bin"
 
 # Set vi-hybrid (combined vi with C-x binds) key bindings
-# fish_hybrid_key_bindings
+fish_hybrid_key_bindings
 
 # Set the prompt
 function fish_prompt
@@ -18,7 +17,6 @@ end
 
 # Common quality of life aliases
 abbr _ "sudo"
-alias please="sudo"
 alias pls="sudo"
 abbr nuke "killall -9"
 alias ..="cd .."
@@ -37,7 +35,6 @@ abbr ss "sudo pacman -S"
 abbr sr "sudo pacman -Rsn"
 abbr syu "sudo pacman -Syu"
 abbr clip "xclip -selection clipboard"
-abbr vps "ssh predator@51.68.142.188"
 abbr ytdwn "youtube-dl -x --embed-thumbnail --audio-quality 6 --audio-format mp3"
 abbr record "ffmpeg -f x11grab -s 1440x900 -i :0.0 -r 30 -vcodec libx264 recording.mkv"
 
