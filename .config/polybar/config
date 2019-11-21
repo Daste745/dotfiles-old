@@ -27,6 +27,8 @@ alert = #bd2c40
 
 [settings]
 screenchange-reload = true
+throttle-output = 5
+throttle-output-for = 10
 
 
 
@@ -42,8 +44,7 @@ font-0 = "Noto Sans Mono:style=Regular:size=8:antialias=true;2"
 font-1 = "Font Awesome 5 Brands:pixelsize=11:antialias=true;3"
 font-2 = "Font Awesome 5 Free:style=Solid:pixelsize=10:antialias=true;3"
 
-module-margin-left = 1
-module-margin-right = 1
+module-margin = 1
 separator = "|"
 
 modules-left = spotify pulseaudio
@@ -51,7 +52,9 @@ modules-center = i3
 modules-right = cpu memory gpu eth date
 
 tray-position = right
-tray-padding = 6
+tray-padding = 5
+tray-maxsize = 16
+tray-detached = false
 
 
 
