@@ -1,3 +1,41 @@
+" Install Plug if not installed
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+  \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
+" Load plugins
+call plug#begin('~/.vim/plugged')
+  Plug 'neoclide/coc.nvim', {'branch': 'release'}
+  Plug 'scrooloose/nerdtree'
+  Plug 'Xuyuanp/nerdtree-git-plugin'
+  Plug 'ryanoasis/vim-devicons'
+  Plug 'scrooloose/nerdcommenter'
+  Plug 'junegunn/goyo.vim'
+  Plug 'https://gitlab.com/betseg/vim-dcrpc.git'
+  let g:dcrpc_autostart = 1
+call plug#end()
+
+" NERDTree bindings and flags
+nmap <C-n> :NERDTreeFocus<CR>
+let g:NERDTreeGitStatusWithFlags = 1
+let g:WebDevIconsUnicodeDecorateFolderNodes = 1
+let g:NERDTreeGitStatusNodeColorization = 1
+let g:NERDTreeIgnore = ['^__pycache__$', '^venv$', '^node_modules$']
+
+let g:coc_global_extensions = [
+  \ 'coc-snippets',
+  \ 'coc-pairs',
+  \ 'coc-eslint', 
+  \ 'coc-prettier', 
+  \ 'coc-json', 
+  \ ]
+
+" NERDCommenter
+vmap <C-\> <plug>NERDCommenterToggle
+nmap <C-\> <plug>NERDCommenterToggle
+
 set encoding=utf-8
 
 " Leader
@@ -19,9 +57,6 @@ set autowrite     " Automatically :write before running commands
 if (&t_Co > 2 || has("gui_running")) && !exists("syntax_on")
   syntax on
 endif
-
-" Spell checking binding
-map <F6> :setlocal spell! spelllang=en_us<CR>
 
 if filereadable(expand("~/.vimrc.bundles"))
   source ~/.vimrc.bundles
@@ -54,23 +89,6 @@ augroup vimrcEx
   autocmd BufRead,BufNewFile vimrc.local set filetype=vim
 augroup END
 
-" ALE linting events
-" augroup ale
-"   autocmd!
-" 
-"   if g:has_async
-"     autocmd VimEnter *
-"       \ set updatetime=1000 |
-"       \ let g:ale_lint_on_text_changed = 0
-"     autocmd CursorHold * call ale#Queue(0)
-"     autocmd CursorHoldI * call ale#Queue(0)
-"     autocmd InsertEnter * call ale#Queue(0)
-"     autocmd InsertLeave * call ale#Queue(0)
-"   else
-"     echoerr "The thoughtbot dotfiles require NeoVim or Vim 8"
-"   endif
-" augroup END
-
 " When the type of shell script is /bin/sh, assume a POSIX-compatible
 " shell for syntax highlighting purposes.
 let g:is_posix = 1
@@ -82,34 +100,17 @@ set shiftround
 set expandtab
 
 " Display extra whitespace
-set list listchars=tab:»·,trail:·,nbsp:·
+" set list listchars=tab:»·,trail:·,nbsp:·
 
 " Use one space, not two, after punctuation.
 set nojoinspaces
 
-" Use The Silver Searcher https://github.com/ggreer/the_silver_searcher
-if executable('ag')
-  " Use Ag over Grep
-  set grepprg=ag\ --nogroup\ --nocolor
-
-  " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
-  let g:ctrlp_user_command = 'ag --literal --files-with-matches --nocolor --hidden -g "" %s'
-
-  " ag is fast enough that CtrlP doesn't need to cache
-  let g:ctrlp_use_caching = 0
-
-  if !exists(":Ag")
-    command -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow|redraw!
-    nnoremap \ :Ag<SPACE>
-  endif
-endif
-
 " Make it obvious where 80 characters is
-" set textwidth=80
-" set colorcolumn=+1
+set textwidth=80
 
 " Numbers
 set number
+set relativenumber
 set numberwidth=5
 
 " Tab completion
@@ -130,16 +131,6 @@ inoremap <S-Tab> <C-n>
 " Switch between the last two files
 nnoremap <Leader><Leader> <C-^>
 
-" vim-test mappings
-nnoremap <silent> <Leader>t :TestFile<CR>
-nnoremap <silent> <Leader>s :TestNearest<CR>
-nnoremap <silent> <Leader>l :TestLast<CR>
-nnoremap <silent> <Leader>a :TestSuite<CR>
-nnoremap <silent> <Leader>gt :TestVisit<CR>
-
-" Run commands that require an interactive shell
-nnoremap <Leader>r :RunInInteractiveShell<Space>
-
 " Treat <li> and <p> tags like the block tags they are
 let g:html_indent_tags = 'li\|p'
 
@@ -153,10 +144,6 @@ nnoremap <C-k> <C-w>k
 nnoremap <C-h> <C-w>h
 nnoremap <C-l> <C-w>l
 
-" Move between linting errors
-nnoremap ]r :ALENextWrap<CR>
-nnoremap [r :ALEPreviousWrap<CR>
-
 " Set spellfile to location that is guaranteed to exist, can be symlinked to
 " Dropbox or kept in Git and managed outside of thoughtbot/dotfiles using rcm.
 set spellfile=$HOME/.vim-spell-en.utf-8.add
@@ -166,25 +153,3 @@ set complete+=kspell
 
 " Always use vertical diffs
 set diffopt+=vertical
-
-" Local config
-if filereadable($HOME . "/.vimrc.local")
-  source ~/.vimrc.local
-endif
-
-" Copy paste
-" map <C-p> "+p
-" vnoremap <C-c> "*y :let @+=@*<CR>
-
-" Plugins
-if empty(glob('~/.vim/autoload/plug.vim'))
-    silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
-        \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-      autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
-    endif
-
-call plug#begin('~/.vim/plugged')
-" Plug 'https://gitlab.com/betseg/vim-dcrpc.git'
-" let g:dcrpc_autostart = 1
-Plug 'junegunn/goyo.vim'
-call plug#end()
