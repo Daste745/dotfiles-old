@@ -7,7 +7,8 @@ endif
 
 " Load plugins
 call plug#begin('~/.vim/plugged')
-  Plug 'neoclide/coc.nvim', {'branch': 'release'}
+  " Plug 'neoclide/coc.nvim', {'branch': 'release'}
+  Plug 'sheerun/vim-polyglot'
   Plug 'scrooloose/nerdtree'
   Plug 'Xuyuanp/nerdtree-git-plugin'
   Plug 'ryanoasis/vim-devicons'
@@ -110,7 +111,6 @@ set textwidth=80
 
 " Numbers
 set number
-set relativenumber
 set numberwidth=5
 
 " Tab completion
@@ -146,10 +146,13 @@ nnoremap <C-l> <C-w>l
 
 " Set spellfile to location that is guaranteed to exist, can be symlinked to
 " Dropbox or kept in Git and managed outside of thoughtbot/dotfiles using rcm.
-set spellfile=$HOME/.vim-spell-en.utf-8.add
+" set spellfile=$HOME/.vim-spell-en.utf-8.add
 
 " Autocomplete with dictionary words when spell check is on
 set complete+=kspell
+
+"set spelllang=pl_pl,en_us
+"set spell
 
 " Always use vertical diffs
 set diffopt+=vertical
