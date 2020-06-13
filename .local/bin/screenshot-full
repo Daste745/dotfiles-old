@@ -1,0 +1,6 @@
+#!/bin/sh
+
+scrot -zpq 70 "/home/stefan/Pictures/screenshots/%Y.%m.%d_%H:%M:%S.png" \
+      -e 'xclip -t image/png -sel c $f; \
+          notify-send --icon $f -a "Screenshot" "Copied $n to clipboard"'
+

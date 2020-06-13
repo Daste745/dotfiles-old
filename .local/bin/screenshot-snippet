@@ -1,0 +1,7 @@
+#!/bin/sh
+
+sleep 0.2s && \
+scrot -zsfq 50 "/home/stefan/Pictures/screenshots/%Y.%m.%d_%H:%M:%S_snippet.png" \
+      -e 'xclip -t image/png -sel c $f; \
+          notify-send --icon $f -a "Screenshot" "Copied $n to clipboard"'
+

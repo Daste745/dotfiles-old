@@ -1,76 +1,44 @@
-#App launchers (super + F1-F12)
-super + {F1, F2, F3, F4, F5, F6, F7, F8, F9, F10, F11, F12}
-  {vivaldi-snapshot, \
-   discord, \
-   spotify, \
-   steam, \
-   lutris, \
-   echo "" > /dev/null, \
-   echo "" > /dev/null, \
-   rofiunicode, \
-   rofimount, \
-   rofiumount, \
-   rofitexttoqr, \
-   rofipowermenu}
+# Applications
 
-
-#Applications
-
-#Terminal
 super + Return
   $TERMINAL
 
-#Program launcher
-super + r
-  rofi -show drun -show-icons
+super + w
+  $BROWSER
 
-#Window switcher
-{super, alt} + Tab
-  rofi -show window -show-icons -lines 10 -width 50
+super + d
+  discord
 
-#Ranger file manager
 super + e
-  $TERMINAL -e ranger
+  thunar
 
-# Calculator
-super + q
-  rofi -show calc
+# dmenu_run -i -b -fn "NotoSansMono Nerd Font:style=Regular:size=11"
+super + r
+  j4-dmenu-desktop --no-generic --dmenu="dmenu -i -b -fn 'NotoSansMono Nerd Font:style=Regular:size=11'" --term="$TERMINAL"
 
-#Process manager
 super + {_, shift +} t
   $TERMINAL -e {gotop, htop}
 
-#Screenshooter
-{_, super} + Print
-  flameshot {gui, \
-             full --clipboard --path ~/img/screenshots}
+super + backslash
+  $TERMINAL -e pulsemixer
 
-{super, shift} + alt + s
-  flameshot gui
+super + shift + x
+  betterlockscreen -l dimblur
 
-#Password manager
-super + p
-  gnome-passwordsafe
+super + Print
+  screenshot-full
 
-#Screen lock
-super + shift + {_, control +} x
-  {screenlock-pixelate, \
-   screenlock-glitch}
+super + alt + Print
+  screenshot-window
 
-#Gimp
-super + g
-  gimp
+{Print, shift + alt + s}
+  screenshot-snippet
 
+# Media and volume
 
-#Media / volume
-
-#Previous, next, play/pause
 super + {comma, period, slash}
-  playerctl {previous, \
-             next, \
-             play-pause}
+  playerctl -p spotify {previous, next, play-pause}
 
-#Volume, mute
 super + {_, shift +, alt +} {minus, equal}
   pulseaudio-ctl {down 5, \
                   down 10, \
@@ -79,6 +47,3 @@ super + {_, shift +, alt +} {minus, equal}
                   up 10, \
                   set 100}
 
-#Audio mixer
-super + backslash
-  $TERMINAL -e pulsemixer
