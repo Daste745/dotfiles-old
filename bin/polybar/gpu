@@ -1,3 +1,0 @@
-#!/bin/sh
-
-echo $(nvidia-smi | grep "MiB | " | awk '{print $13}{print $9}')
