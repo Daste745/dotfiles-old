@@ -1,4 +1,3 @@
-#~/.xprofile
+~/.xprofile
 
-#exec i3
-#exec startkde
+exec dwm

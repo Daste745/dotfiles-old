@@ -1,9 +1,16 @@
 # Set resolution and refresh rate
 xrandr --output DVI-D-0 --mode 1440x900 --rate 75 --primary
 
-xset r rate 300 50 &                 # Speed keyboard repeat rate up
-setxkbmap -option caps:escape        # Remap caps to escape
-sxhkd &                              # Launch the simple x hotkey daemon
-wal -R &                             # Restore the wallpaper and color scheme
-[ ! -s ~/.config/mpd/pid ] && mpd &  # Run the music player daemon
-dunst &                              # Launch the dunst notification daemon
+# League of Legends anticheat fix
+sudo bash -c 'echo "abi.vsyscall32 = 0" >> /etc/sysctl.conf && sysctl -p'
+
+xset r rate 200 90 &                     # Speed keyboard repeat rate up
+setxkbmap -layout pl -option caps:escape # Remap caps to escape
+sxhkd &                                  # Launch the simple x hotkey daemon
+picom --experimental-backends &          # Launch the picom composite manager
+redshift &                               # Launch redshift
+dunst &                                  # Launch the dunst notification daemon
+~/.local/bin/setdwmstatus &              # Dwm status bar, temporary
+
+# Temporary wallpaper setting, to be replaced by wal or other script
+feh --bg-fill ~/Pictures/wallpapers/anime/kimetsu-no-yaiba/daki.jpg
