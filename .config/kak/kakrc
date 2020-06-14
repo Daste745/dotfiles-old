@@ -9,11 +9,13 @@ plug "alexherbo2/surround.kak"
 plug "alexherbo2/auto-pairs.kak"
 plug "alexherbo2/move-line.kak"
 plug "jwhett/sxhkdrc-kak"
+plug "occivink/kakoune-expand"
+# plug "Delapouite/kakoune-expand-region"
 
 
 ############
 # Appearance
-colorscheme palenight
+colorscheme gruvbox
 # Make everything transparent
 set-face global Default default,default
 set-face global BufferPadding default,default
@@ -21,7 +23,7 @@ set-face global StatusLine default,default+bu
 set-face global StatusLineMode default,default
 set-face global StatusLineInfo default,default
 set-face global StatusLineValue default,default
-set-face global LineNumbersWrapped rgb:4b5263,default+i
+# set-face global LineNumbersWrapped rgb:4b5263,default+i
 
 add-highlighter global/ number-lines -hlcursor
 add-highlighter global/ wrap -word -indent
@@ -42,13 +44,13 @@ set-option -add global surround_pairs "_" "_" "*" "*"
 map global normal p "<a-!>xsel --output --clipboard<ret>" -docstring "insert from clipboard"
 map global normal P "!xsel --output --clipboard<ret>" -docstring "append from clipboard"
 
-map global normal '<esc>' ' ;<esc>' -docstring "remove all selection except main, reduce selection to cursor, and stop highlighting search matches"
+map global normal "<esc>" " ;<esc>" -docstring "remove all selections except main and reduce it to cursor"
 map global normal "#" ": comment-line<ret>" -docstring "toggle line comment"
-map global normal <c-p> ': fzf-mode<ret>' -docstring "show fzf"
+map global normal <c-p> ": fzf-mode<ret>" -docstring "show fzf"
 
 # Case insensitive search
-map global normal / '/(?i)'
-map global normal ? '?(?i)'
+map global normal / "/(?i)"
+map global normal ? "?(?i)"
 
 # Soft tabs
 map global insert <tab> "<a-;><gt>"
@@ -56,8 +58,10 @@ map global insert <s-tab> "<a-;><lt>"
 
 map global user s ": surround<ret>" -docstring "surround text"
 
-map global normal "'" ": move-line-above<ret>"
-map global normal "<c-'>" ": move-line-below<ret>"
+map global normal "<a-'>" ": move-line-above<ret>" -docstring "move line above"
+map global normal "'" ": move-line-below<ret>" -docstring "move line below"
+
+map global normal + ": expand<ret>" -docstring "expand selection"
 
 
 #######
@@ -107,7 +111,7 @@ add-highlighter global/ dynregex "%opt{curword}" 0:CurWord
 hook global WinSetOption filetype=python %{
   set-option buffer tabstop 4
   set-option buffer indentwidth 4
-  set-option buffer autowrap_collumn 80
+  set-option buffer autowrap_column 80
   autowrap-enable
 }
 
