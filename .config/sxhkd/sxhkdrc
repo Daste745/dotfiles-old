@@ -6,13 +6,12 @@ super + Return
 super + w
   $BROWSER
 
-super + d
-  discord
-
 super + e
   thunar
 
-# dmenu_run -i -b -fn "NotoSansMono Nerd Font:style=Regular:size=11"
+super + shift + e
+  enpass showassistant
+
 super + r
   j4-dmenu-desktop --no-generic --dmenu="dmenu -i -b -fn 'NotoSansMono Nerd Font:style=Regular:size=11'" --term="$TERMINAL"
 
@@ -23,7 +22,7 @@ super + backslash
   $TERMINAL -e pulsemixer
 
 super + shift + x
-  betterlockscreen -l dimblur
+  betterlockscreen -l blur
 
 super + Print
   screenshot-full
