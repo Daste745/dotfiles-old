@@ -1,9 +1,27 @@
 # Dotfiles
 
-This repo was highly maintained by me back when I used i3. My current wm is dwm, so most of the configs are outdated.
+# Most important programs
+- **Window Manager**: [dwm](https://github.com/Stefankar1000/dwm)
+- **Terminal**: [st](https://github.com/Stefankar1000/st)
+- **Compositor**: picom [`~/.config/picom.conf`](.config/picom.conf)
+- **Notifications**: dunst [`~/.config/dunst/dunstrc`](.config/dunst/dunstrc)
+- **Editor**: kakoune [`~/.config/kak/kakrc`](.config/kak/kakrc)
+- **Shell**: zsh [`~/.zshrc`](.zshrc)
+- **Keyboard shortcuts**: sxhkd [`~/.config/sxhkd/sxhkdrc`](.config/sxhkd/sxhkdrc)
+- **Lock**: betterlockscreen, xautolock
 
+# Scripts (~/.local/bin)
+- **[screenshot-full](.local/bin/screenshot-full)**: takes a screeshot of the entire screen, copies it to the clipboard and saves to `~/Pictures/screenshots` (make sure that this folder exists before using any screenshot scripts)
+- **[screenshots-window](.local/bin/screenshot-window)**: same as screenshot-full, but only captures the currently focused window
+- **[screenshot-snippet](.local/bin/screenshot-snippet)**: freezes the screen and lets you take a screenshot of an area of the screen
+- **[setdwmstatus](.local/bin/setdwmstatus)**: temporary script for updating dwm's status with the current day and hour (runs in a loop)
 
-![Desktop](https://cdn.discordapp.com/attachments/483273472555089930/624608701990567936/unknown.png)
-![Desktop with Discord](https://cdn.discordapp.com/attachments/483273472555089930/624606210015887389/unknown.png)
-![Busy desktop](https://cdn.discordapp.com/attachments/483273472555089930/624608216839487490/unknown.png)
-![Desktop with Discord](https://cdn.discordapp.com/attachments/483273472555089930/624606242601435146/unknown.png)
+# Screenshots
+Clean desktop + notification
+![Desktop](Pictures/dotfiles/desktop.png)
+Default window layout
+![Busy](Pictures/dotfiles/busy-default.png)
+Gaps turned off
+![Busy without gaps](Pictures/dotfiles/busy-nogaps.png)
+Big gaps
+![Busy with big gaps](Pictures/dotfiles/busy-biggaps.png)
