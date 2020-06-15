@@ -1,6 +1,9 @@
 # Set resolution and refresh rate
 xrandr --output DVI-D-0 --mode 1440x900 --rate 75 --primary
 
+# Run xautolock for automatic screen locking
+xautolock -time 10 -locker "betterlockscreen -l blur" &
+
 # League of Legends anticheat fix
 sudo bash -c 'echo "abi.vsyscall32 = 0" >> /etc/sysctl.conf && sysctl -p'
 
@@ -11,7 +14,7 @@ picom --experimental-backends &          # Launch the picom composite manager
 redshift &                               # Launch redshift
 dunst &                                  # Launch the dunst notification daemon
 ~/.local/bin/setdwmstatus &              # Dwm status bar, temporary
-gwe --hide-window &
+gwe --hide-window &                      # GreenWithEnvy, used for overclocking the GPU
 
 # Temporary wallpaper setting, to be replaced by wal or other script
 feh --bg-fill ~/Pictures/wallpapers/anime/kimetsu-no-yaiba/daki.jpg

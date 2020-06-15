@@ -22,7 +22,7 @@ super + backslash
   $TERMINAL -e pulsemixer
 
 super + shift + x
-  betterlockscreen -l blur
+  xautolock -locknow
 
 super + Print
   screenshot-full
