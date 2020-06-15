@@ -10,7 +10,6 @@ plug "alexherbo2/auto-pairs.kak"
 plug "alexherbo2/move-line.kak"
 plug "jwhett/sxhkdrc-kak"
 plug "occivink/kakoune-expand"
-# plug "Delapouite/kakoune-expand-region"
 
 
 ############
@@ -23,7 +22,6 @@ set-face global StatusLine default,default+bu
 set-face global StatusLineMode default,default
 set-face global StatusLineInfo default,default
 set-face global StatusLineValue default,default
-# set-face global LineNumbersWrapped rgb:4b5263,default+i
 
 add-highlighter global/ number-lines -hlcursor
 add-highlighter global/ wrap -word -indent
