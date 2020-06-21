@@ -26,7 +26,7 @@ compinit
 _comp_options+=(globdots)
 
 # History settings
-HISTFILE=~/.histfile
+HISTFILE=~/.cache/histfile
 HISTSIZE=10000000
 SAVEHIST=10000000
 setopt histignorespace
@@ -53,7 +53,6 @@ alias ....="cd ../../.."
 alias ~="cd ~"
 
 alias ls="ls -h --color=yes"
-# alias ls="lsd"
 alias ll="ls -l"
 alias la="ls -a"
 alias lla="ls -la"
