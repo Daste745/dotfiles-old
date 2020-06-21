@@ -3,11 +3,11 @@
 # Most important programs
 - **Window Manager**: [dwm](https://github.com/Stefankar1000/dwm)
 - **Terminal**: [st](https://github.com/Stefankar1000/st)
-- **Compositor**: [picom](.config/picom.conf)
-- **Notifications**: [dunst](.config/dunst/dunstrc)
-- **Editor**: [kakoune](.config/kak/kakrc)
-- **Shell**: [zsh](.zshrc)
-- **Keyboard shortcuts**: [sxhkd](.config/sxhkd/sxhkdrc)
+- **Compositor**: [picom](../.config/picom.conf)
+- **Notifications**: [dunst](../.config/dunst/dunstrc)
+- **Editor**: [kakoune](../.config/kak/kakrc)
+- **Shell**: [zsh](../.zshrc)
+- **Keyboard shortcuts**: [sxhkd](../.config/sxhkd/sxhkdrc)
 - **Lock**: betterlockscreen, xautolock
 
 # Scripts [.local/bin](.local/bin)
@@ -18,10 +18,10 @@
 
 # Screenshots
 Clean desktop + notification
-![Desktop](Pictures/dotfiles/desktop.png)
+![Desktop](../Pictures/dotfiles/desktop.png)
 Default window layout
-![Busy](Pictures/dotfiles/busy-default.png)
+![Busy](../Pictures/dotfiles/busy-default.png)
 Gaps turned off
-![Busy without gaps](Pictures/dotfiles/busy-nogaps.png)
+![Busy without gaps](../Pictures/dotfiles/busy-nogaps.png)
 Big gaps
-![Busy with big gaps](Pictures/dotfiles/busy-biggaps.png)
+![Busy with big gaps](../Pictures/dotfiles/busy-biggaps.png)
