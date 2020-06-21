@@ -50,10 +50,6 @@ map global normal <c-p> ": fzf-mode<ret>" -docstring "show fzf"
 map global normal / "/(?i)"
 map global normal ? "?(?i)"
 
-# Soft tabs
-map global insert <tab> "<a-;><gt>"
-map global insert <s-tab> "<a-;><lt>"
-
 map global user s ": surround<ret>" -docstring "surround text"
 
 map global normal "<a-'>" ": move-line-above<ret>" -docstring "move line above"
