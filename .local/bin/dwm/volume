@@ -1,6 +1,7 @@
 #!/bin/sh
 
 status=$(pulseaudio-ctl full-status)
+[[ -z $status ]] && exit
 icon=$(echo $status | cut -d" " -f 2 | sed 's/no//;s/yes//')
 volume=$(echo $status | cut -d" " -f 1)
 

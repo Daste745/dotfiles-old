@@ -1,5 +1,6 @@
 #!/bin/sh
 
 count=$(pacman -Qu | wc -l)
+(( $count <= 0 )) && exit
 echo " $count"
 
