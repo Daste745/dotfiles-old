@@ -1,0 +1,4 @@
+#!/bin/sh
+
+LC_ALL=$LC_TIME date +" %a %d %b"
+

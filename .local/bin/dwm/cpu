@@ -1,0 +1,4 @@
+#!/bin/sh
+
+ps axh -o %cpu | awk '{i+=$1} END {print " "int(i)"%"}'
+

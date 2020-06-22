@@ -13,7 +13,7 @@ sxhkd &                                  # Launch the simple x hotkey daemon
 picom --experimental-backends &          # Launch the picom composite manager
 redshift &                               # Launch redshift
 dunst &                                  # Launch the dunst notification daemon
-~/.local/bin/setdwmstatus &              # Dwm status bar, temporary
+~/.local/bin/dwm-status &                # Dwm status script
 
 # Temporary wallpaper setting, to be replaced by wal or other script
 feh --bg-fill ~/Pictures/wallpapers/anime/kimetsu-no-yaiba/daki.jpg

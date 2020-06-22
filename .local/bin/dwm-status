@@ -1,0 +1,52 @@
+#!/bin/bash
+
+# Settings
+MODULE_DIR="$HOME/.local/bin/dwm"
+SEPARATOR=" "
+COOLDOWN="5s"
+MODULES=(
+  "spotify"
+  "volume"
+  "cpu"
+  "ram"
+  "pacman"
+  "date"
+  "time"
+)
+##########
+
+
+# Exit if MODULE_DIR is invalid
+[[ ! -d $MODULE_DIR ]] && exit
+
+# Exit if there are no modules
+[[ -z $MODULES ]] && exit
+
+# Main loop
+while :
+do
+  status=""
+
+  for i in ${MODULES[*]}
+  do
+    module="$MODULE_DIR/$i"
+
+    # Skip modules which are non-executable or empty
+    [[ ! -x $module ]] && continue
+    [[ ! -s $module ]] && continue
+
+    output=$($module 2> /dev/null)
+
+    # Skip modules with no output
+    [[ -z $output ]] && continue
+
+    status+="$output"
+    # Add a separator if module is not last
+    [[ $i != ${MODULES[-1]} ]] && status+="$SEPARATOR" || continue
+
+  done
+
+  xsetroot -name "$status"
+  sleep $COOLDOWN
+done
+

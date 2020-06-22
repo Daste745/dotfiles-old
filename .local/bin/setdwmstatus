@@ -1,8 +1,0 @@
-#!/bin/sh
-
-while :
-do
-  xsetroot -name "$(LC_ALL=$LC_TIME date +"%A %d %B %H:%M:%S")" \
-  && sleep 1
-done
-

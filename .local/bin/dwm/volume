@@ -1,0 +1,8 @@
+#!/bin/sh
+
+status=$(pulseaudio-ctl full-status)
+icon=$(echo $status | cut -d" " -f 2 | sed 's/no//;s/yes//')
+volume=$(echo $status | cut -d" " -f 1)
+
+echo "$icon $volume%"
+
