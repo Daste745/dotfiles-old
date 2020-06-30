@@ -5,5 +5,7 @@ status=$(pulseaudio-ctl full-status)
 icon=$(echo $status | cut -d" " -f 2 | sed 's/no//;s/yes//')
 volume=$(echo $status | cut -d" " -f 1)
 
-echo "$icon $volume%"
+eq_icon=$(pulseaudio-equalizer status | grep "Equalizer status" | cut -d" " -f 3 | sed 's/\[disabled\]//;s/\[enabled\]//')
+
+echo "$icon$eq_icon $volume%"
 
