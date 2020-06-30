@@ -1,0 +1,15 @@
+#!/bin/sh
+
+case $1 in
+  "up")   pulseaudio-ctl up $2 ;;
+  "down") pulseaudio-ctl down $2 ;;
+  "set")  pulseaudio-ctl set $2 ;;
+  "mute") pulseaudio-ctl mute ;;
+esac
+
+status=$(pulseaudio-ctl full-status)
+volume=$(echo $status | cut -d" " -f 1)
+muted=$(echo $status | cut -d" " -f 2 | sed 's/no//;s/yes/!/')
+
+echo "$volume$muted" > /tmp/volume
+

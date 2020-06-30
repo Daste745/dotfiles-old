@@ -39,10 +39,13 @@ super + {comma, period, slash}
   playerctl -p spotify {previous, next, play-pause}
 
 super + {_, shift +, alt +} {minus, equal}
-  pulseaudio-ctl {down 5, \
-                  down 10, \
-                  mute, \
-                  up 5, \
-                  up 10, \
-                  set 100}
+  volume {down 5, \
+          down 10, \
+          mute, \
+          up 5, \
+          up 10, \
+          set 100}
+
+super + alt + e
+  pulseaudio-equalizer toggle
 
