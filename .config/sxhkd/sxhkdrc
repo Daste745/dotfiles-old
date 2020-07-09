@@ -9,6 +9,12 @@ super + w
 super + e
   thunar
 
+super + s
+  spotify
+
+super + d
+  discord
+
 super + shift + e
   enpass showassistant
 
