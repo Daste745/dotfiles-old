@@ -2,8 +2,8 @@
 
 # Most important programs
 - **Window Managers**:
-    - [openbox](../.config/openbox/rc.xml)  (currenly running)
-    - [dwm](https://github.com/Stefankar1000/dwm)
+  - [openbox](../.config/openbox/rc.xml)  (currenly running)
+  - [dwm](https://github.com/Stefankar1000/dwm)
 - **Terminal**: [st](https://github.com/Stefankar1000/st)
 - **Compositor**: [picom](../.config/picom.conf)
 - **Notifications**: [dunst](../.config/dunst/dunstrc)
@@ -21,21 +21,21 @@
 
 # Screenshots
 <details>
-    <summary>Openbox</summary>
+  <summary>Openbox</summary>
 
-    Busy desktop
-    ![Busy](../Pictures/dotfiles/openbox-busy.png)
+  Busy desktop
+  ![Busy](../Pictures/dotfiles/openbox-busy.png)
 </details>
 
 <details>
-    <summary>Dwm</summary>
+  <summary>Dwm</summary>
 
-    Clean desktop + notification
-    ![Desktop](../Pictures/dotfiles/dwm-desktop.png)
-    Default window layout
-    ![Busy](../Pictures/dotfiles/dwm-busy-default.png)
-    Gaps turned off
-    ![Busy without gaps](../Pictures/dotfiles/dwm-busy-nogaps.png)
-    Big gaps
-    ![Busy with big gaps](../Pictures/dotfiles/dwm-busy-biggaps.png)
+  Clean desktop + notification
+  ![Desktop](../Pictures/dotfiles/dwm-desktop.png)
+  Default window layout
+  ![Busy](../Pictures/dotfiles/dwm-busy-default.png)
+  Gaps turned off
+  ![Busy without gaps](../Pictures/dotfiles/dwm-busy-nogaps.png)
+  Big gaps
+  ![Busy with big gaps](../Pictures/dotfiles/dwm-busy-biggaps.png)
 </details>
