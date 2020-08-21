@@ -13,10 +13,11 @@ sxhkd &                                  # Launch the simple x hotkey daemon
 picom --experimental-backends &          # Launch the picom composite manager
 redshift &                               # Launch redshift
 dunst &                                  # Launch the dunst notification daemon
-~/.local/bin/dwm-status &                # Dwm status script
+# ~/.local/bin/dwm-status &                # Dwm status script
+tint2 &                                  # Application dock
 
 # Temporary wallpaper setting, to be replaced by wal or other script
-feh --bg-fill ~/Pictures/wallpapers/anime/kimetsu-no-yaiba/daki.jpg
+feh --bg-fill /home/stefan/Pictures/wallpapers/anime/kimetsu-no-yaiba/Kochou.Shinobu.full.2760120.jpg
 
 # Xob
 mkfifo /tmp/volume

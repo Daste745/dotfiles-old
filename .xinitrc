@@ -1,3 +1,4 @@
 ~/.xprofile
 
-exec dwm
+# exec dwm
+exec openbox
