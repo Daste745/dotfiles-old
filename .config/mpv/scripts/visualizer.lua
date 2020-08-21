@@ -7,7 +7,7 @@ local opts = {
     -- novideo          enable visualization when no video
     -- force            always enable visualization
 
-    name = "showwaves",
+    name = "showcqtbar",
     -- off
     -- showcqt
     -- avectorscope
@@ -28,7 +28,7 @@ local opts = {
 
 -- key bindings
 -- cycle visualizer
-local cycle_key = "c"
+local cycle_key = "alt+v"
 
 if not (mp.get_property("options/lavfi-complex", "") == "") then
     return
