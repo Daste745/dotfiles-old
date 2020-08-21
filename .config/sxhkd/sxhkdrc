@@ -13,7 +13,7 @@ super + s
   spotify
 
 super + d
-  discord
+  discord-canary
 
 super + shift + e
   enpass showassistant
@@ -36,7 +36,7 @@ super + Print
 super + alt + Print
   screenshot-window
 
-{Print, shift + alt + s}
+{@Print, shift + alt + @s}
   screenshot-snippet
 
 # Media and volume
