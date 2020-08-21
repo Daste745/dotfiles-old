@@ -1,12 +1,13 @@
 # Environmental variables
 export _JAVA_AWT_WM_NONREPARENTING=1
-export BROWSER="vivaldi-stable"
+export BROWSER="firefox"
 export TERMINAL="st"
 export EDITOR="kak"
 export LC_TIME="pl_PL.utf-8"
 export LC_ALL="en_US.utf-8"
 
-export ANDROID_HOME="$HOME/.android/sdk"
+export ANDROID_SDK_HOME="$XDG_CONFIG_HOME/android"
+export ADB_VENDOR_KEY="$XDG_CONFIG_HOME/android"
 export GOPATH="$HOME/.local/share/go"
 
 export PATH="$PATH:$HOME/.local/bin:$HOME/.cargo/bin:$GOPATH/bin:$HOME/Projects/flutter/sdk/bin:$ANDROID_HOME/platform-tools"
@@ -67,4 +68,9 @@ alias adbscreen="adb shell screencap -p > screen.png"
 
 # Load zsh-syntax-highlighting
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2> /dev/null
+
+# Start X session if logged in on tty1
+if [[ "$(tty)" == '/dev/tty1' ]]; then
+  [[ -z "$DISPLAY$SSH_TTY$(pgrep xinit)" ]] && startx
+fi
 
